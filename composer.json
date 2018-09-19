@@ -1,7 +1,7 @@
 {
-    "name": "timwhitlock/jparser",
+    "name": "shopsys/jparser",
     "description": "A JavaScript parsing library for PHP",
-    "licencse": "MIT",
+    "license": "MIT",
     "authors": [
         {
             "name": "Tim Whitlock",
@@ -9,7 +9,9 @@
         }
     ],
     "autoload": {
-        "psr-4": {"PLUG\\": "PLUG/"},
+        "psr-4": {
+            "PLUG\\": "PLUG/"
+        },
         "files": [
           "conf.dist/PLUG.conf.php",
           "PLUG/core/PLUGTool.php"
