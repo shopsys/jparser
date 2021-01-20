@@ -69,7 +69,7 @@ function j_token_html( $src , $ws = true, $unicode = true, $ol = 'ol', $LexClass
 		else {
 			$class = $Lex->name( $t );
 		}
-		while( isset($s{0}) ){
+		while( isset($s[0]) ){
 			if( ! preg_match('/^(.*)\n/', $s, $r ) ){
 				$lines[0] .= '<span class="'.$class.'">'._j_htmlentities($s).'</span>';
 				break;

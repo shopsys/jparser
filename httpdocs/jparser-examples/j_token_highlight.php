@@ -60,7 +60,7 @@ while( list(,$token) = each($tokens) ){
 		$class = j_token_name($t);
 	}
 	// style and push onto source code lines array
-	while( isset($s{0}) ){
+	while( isset($s[0]) ){
 		if( ! preg_match('/^(.*)(\n|\r\n|\r)/', $s, $r ) ){
 			$lines[0] .= '<span class="'.$class.'">'._j_htmlentities($s).'</span>';
 			break;

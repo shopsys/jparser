@@ -99,7 +99,7 @@ final class PLUGCli {
 				$name and self::$args[ $name ] = true;
 			}
 			
-			else if( $arg && $arg{0} === '-' ){
+			else if( $arg && $arg[0] === '-' ){
 				$flags = preg_split('//', trim($arg,"-\n\r\t "), -1, PREG_SPLIT_NO_EMPTY );
 				foreach( $flags as $flag ){
 					self::$args[ $flag ] = true;
@@ -208,7 +208,7 @@ final class PLUGCli {
  * @return void
  */
 function virtual( $vpath ){
-	if( $vpath{0} === '/' ){
+	if( $vpath[0] === '/' ){
 		$vpath = PLUG_VIRTUAL_DIR . $vpath;
 	}
 	readfile( $vpath );

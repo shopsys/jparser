@@ -125,7 +125,7 @@ abstract class JTokenizerBase {
 	function get_next_token(){
 				
 		// Sniff current leading character to save unecessary regular expression failures
-		$c = $this->src{0};
+		$c = $this->src[0];
 		
 		// Encapsed string
 		// ( double quotes )
@@ -155,13 +155,13 @@ abstract class JTokenizerBase {
 
 		else if( $c === '/' ){
 			//  Single line comments 
-			if( $this->src{1} === '/' && preg_match( $this->regComment, $this->src, $r ) ){
+			if( $this->src[1] === '/' && preg_match( $this->regComment, $this->src, $r ) ){
 				$t = $this->whitespace ? J_COMMENT : false;
 				$s = $r[0];
 			}
 			
 			// Multi line comments 
-			else if( $this->src{1} === '*' && preg_match( $this->regCommentMulti, $this->src, $r ) ){
+			else if( $this->src[1] === '*' && preg_match( $this->regCommentMulti, $this->src, $r ) ){
 				$s = $r[0];
 				if( $this->whitespace ){
 					$t = J_COMMENT;
@@ -188,7 +188,7 @@ abstract class JTokenizerBase {
 			}
 
 			// Else one of the two dividing operators
-			else if ( $this->src{1} === '=' ) {
+			else if ( $this->src[1] === '=' ) {
 				$s = $t = '/=';
 				$this->divmode = false;
 			}

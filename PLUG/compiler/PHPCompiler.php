@@ -183,7 +183,7 @@ class PHPCompiler {
 	 */
 	function __construct( $path, $options, array $incfuncs = null, array $incnone = null ){
 		// allow relative paths from host root
-		if( $path{0} !== '/' ){
+		if( $path[0] !== '/' ){
 			$path = PLUG_HOST_DIR .'/'. $path;
 		}
 		if( ! PLUGTool::check_file($path) ){
@@ -306,11 +306,11 @@ class PHPCompiler {
 		// paths should all be on current filesystem
 		$this->incpaths = array();
 		foreach( $paths as $i => $path ){
-			if( $path{0} === '.' ){
+			if( $path[0] === '.' ){
 				// allow refs relative to self
 				$path = cleanpath( $this->cwd.'/'.$path );
 			}
-			else if( $path{0} !== '/' ){
+			else if( $path[0] !== '/' ){
 				// else assume relative to virtual root
 				$path = cleanpath( PLUG_VIRTUAL_DIR.'/'.$path );
 			}
@@ -486,7 +486,7 @@ class PHPCompiler {
 	 */
 	private function compile_virtual( $vpath ){
 		// path should be virtual (or relative to current script?)
-		if( $vpath{0} === '/' ){
+		if( $vpath[0] === '/' ){
 			$path = PLUG_VIRTUAL_DIR.$vpath;
 		}
 		else {
@@ -522,7 +522,7 @@ class PHPCompiler {
 	private function compile_php( $path, $incfunc = null, $isroot = false ){
 		
 		// resolve to absolute path if required
-		if( ! $path || $path{0} !== '/' ){
+		if( ! $path || $path[0] !== '/' ){
 			// if we are not running in the same environment as the development site we may have diffent include paths set, 
 			// this is only really likely over CLI, so we shall add common PLUG include paths as an additional parameter.
 			if( PLUG_CLI ){
@@ -590,7 +590,7 @@ class PHPCompiler {
 			    " * ".date('r')." \n".
 			    " */\n";
 			}
-			if( is_array($tokens) && $tokens[0][1]{0} === '#' ){
+			if( is_array($tokens) && $tokens[0][1][0] === '#' ){
 				// shebang cannot be preceded
 				// add on first T_OPEN_TAG
 			}

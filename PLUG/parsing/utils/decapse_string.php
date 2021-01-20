@@ -25,7 +25,7 @@ function decapse_string( $s ){
 	if( empty($s) ){
 		return '';
 	}
-	$q = $s{0};
+	$q = $s[0];
 	switch( $q ){
 	case "'":
 	case '"':

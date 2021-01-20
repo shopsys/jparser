@@ -21,10 +21,10 @@ namespace PLUG\parsing\utils;
  */
 function collect_encapsed_string( $src, $canbreak = false ){
 	if( $canbreak ){
-		$pattern = sprintf( '/^%1$s(?:\\\.|[^%1$s\\\])*%1$s/s', $src{0} );
+		$pattern = sprintf( '/^%1$s(?:\\\.|[^%1$s\\\])*%1$s/s', $src[0] );
 	}
 	else {
-		$pattern = sprintf( '/^%1$s(?:\\\.|[^\r\n%1$s\\\])*%1$s/', $src{0} );
+		$pattern = sprintf( '/^%1$s(?:\\\.|[^\r\n%1$s\\\])*%1$s/', $src[0] );
 	}
 	if( ! preg_match($pattern, $src, $r ) ){
 		return '';

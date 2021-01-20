@@ -88,7 +88,7 @@ final class PLUG {
 	 * @return int script exit value
 	 */	
 	static function exec_bin( $path, array $args = array(), &$stdout ){
-		if( $path{0} !== '/' && $path{0} !== '.' ){
+		if( $path[0] !== '/' && $path[0] !== '.' ){
 			$path = PLUG_HOST_DIR.'/PLUG/bin/'.$path;
 		}
 		$command = escapeshellcmd( $path );
