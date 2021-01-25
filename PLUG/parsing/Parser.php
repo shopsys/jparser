@@ -109,7 +109,7 @@ abstract class Parser {
 		}
 		// initialize input stream
 		$this->input = $input;
-		$this->input[] = P_EOF;
+		$this->input[] = [P_EOF];
 		$this->current_token();
 		// check we were constructed properly by descendant
 		if( ! isset($this->Lex) || ! $this->Lex instanceof Lex ){

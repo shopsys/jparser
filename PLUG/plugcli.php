@@ -44,7 +44,7 @@ if( isset($__cwd) ){
 	trigger_error('Do not define $cwd before including this file', E_USER_ERROR );
 }
 $__cwd = dirname( $argv[0] );
-if( $__cwd{0} !== '/' ){
+if( $__cwd[0] !== '/' ){
 	// relative cwd, must prepend current working directory
 	// getcwd() resolves symlinks, must use shell prog
 	$__cwd = getcwd() .'/'. $__cwd;

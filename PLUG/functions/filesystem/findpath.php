@@ -27,7 +27,7 @@ function findpath( $f, $cwd = '.', array $extra = null, $noini = false ){
 	if( $f == '' ){
 		return $cwd;
 	}
-	if( $f{0} === '/' ){
+	if( $f[0] === '/' ){
 		return cleanpath( $f );
 	}
 	$incs = $noini ? array() : explode( ':', ini_get('include_path') );
@@ -39,11 +39,11 @@ function findpath( $f, $cwd = '.', array $extra = null, $noini = false ){
 			// current dir
 			$inc = $cwd;
 		}
-		else if( $inc{0} !== '/' ){
+		else if( $inc[0] !== '/' ){
 			// relative path as include path, bad idea
 			$inc = $cwd . $inc;
 		}
-		if( $f{0} !== '/' && substr($inc,-1,1) !== '/' ){
+		if( $f[0] !== '/' && substr($inc,-1,1) !== '/' ){
 			// glue required
 			$path = $inc . '/' . $f;
 		}
@@ -58,4 +58,3 @@ function findpath( $f, $cwd = '.', array $extra = null, $noini = false ){
 	// no path matched
 	return null;
 }
- 

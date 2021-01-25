@@ -65,7 +65,7 @@ foreach( $argv as $i => $arg ){
 	if( $arg === '' ){
 		$path = $arg;
 	}
-	else if( $i && $arg{0} !== '-' ){
+	else if( $i && $arg[0] !== '-' ){
 		$path = $arg;
     }
 }
@@ -76,7 +76,7 @@ if( ! isset($path) ){
 if( $path === '' ){
 	$path = PLUG_VIRTUAL_DIR;
 }
-else if( $path{0} !== '/' ){
+else if( $path[0] !== '/' ){
 	$path = PLUG_VIRTUAL_DIR .'/'. $path;
 }
 if( is_dir($path) ){

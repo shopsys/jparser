@@ -28,7 +28,7 @@ function bnf_tokenize( $src ){
 	$inrule = false;
 	while( $src ){
 	
-		if( $src{0} === '"' || $src{0} === "'" ){
+		if( $src[0] === '"' || $src[0] === "'" ){
 			$inrule = true;
 			$t = BNF_LITERAL;
 			$s = collect_encapsed_string( $src );
@@ -64,7 +64,7 @@ function bnf_tokenize( $src ){
 		//}
 		else {
 			// else any unvalidated single character input
-			$s = $src{0};
+			$s = $src[0];
 			switch( $s ){
 			case ';':
 				$t = BNF_RULE_END;

@@ -35,7 +35,7 @@ function cleanpath( $path ){
 			$f = end( $target );
 			if( ! $f || $f === '..' ){
 				// check it hasn't gone above root
-				if( $path{0} === '/' ){
+				if( $path[0] === '/' ){
 					trigger_error('Path goes above root', E_USER_NOTICE );
 					return '/';
 				}
@@ -52,7 +52,7 @@ function cleanpath( $path ){
 		}
 	}
 	$cpath = implode('/', $target );
-	if( $cpath === '' && $path{0} === '/' ){
+	if( $cpath === '' && $path[0] === '/' ){
 		return '/';
 	}
 	return $cpath;

@@ -28,11 +28,11 @@ use function PLUG\functions\filesystem\cleanpath;
  */	
 function relpath( $thisdir, $target, array $incs = null, $nodot = false ){
 
-	if( $target{0} !== '/' ){
+	if( $target[0] !== '/' ){
 		// target already relative
 		return $target;
 	}
-	else if( $thisdir{0} !== '/' ){
+	else if( $thisdir[0] !== '/' ){
 		trigger_error( "first argument must be an absolute path", E_USER_NOTICE );
 		return $target;
 	}
@@ -45,7 +45,7 @@ function relpath( $thisdir, $target, array $incs = null, $nodot = false ){
 	if( ! empty($incs) ){
 		$paths = array();
 		foreach( $incs as $inc ){
-			if( $inc{0} !== '/' ){
+			if( $inc[0] !== '/' ){
 				$inc = $thisdir.'/'.$inc;
 			}
 			$inc = cleanpath( $inc );

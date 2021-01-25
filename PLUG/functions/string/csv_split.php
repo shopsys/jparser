@@ -24,7 +24,7 @@ namespace PLUG\functions\string;
 function csv_split( $src, $comma = ',', $esc = '\\' ){
 	$a = array();
 	while( $src ){
-		$c = $src{0};
+		$c = $src[0];
 		switch( $c ){
 		// permit empty values
 		case ',':

@@ -30,7 +30,7 @@ class BNFTermNode extends LRParseNode {
 		case 1:
 			// "terminal" | terminal
 			$s = $this->reset()->evaluate();
-			if( $s{0} === '"' || $s{0} === "'" ){
+			if( $s[0] === '"' || $s[0] === "'" ){
 				$s = stripslashes( substr( $s, 1, strlen($s)-2 ) );
 				$literal = true;
 			}
